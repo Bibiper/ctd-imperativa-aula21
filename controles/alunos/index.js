@@ -1,14 +1,14 @@
 
 // Importação do Módulo Professor.
-const CadastrarProfessor = require('../../modelos/professores/cadastrar');
-const Professores = require('../../modelos/professores/listar');
+const CadastrarAluno = require('../../modelos/alunos/cadastrar');
+const Alunos = require('../../modelos/alunos/listar');
 /*
     Obs.: Em uma situação real, haveria apenas um modelo para controlar
     todas as consultas, mas por questões didádicas e de tempo, 
     preferir seguir com o código divido.
 */
 
-const cadastrarProfessor = (requisicaoAoServidor, respostaDoServidor) => {
+const cadastrarAluno = (requisicaoAoServidor, respostaDoServidor) => {
     // Os atributos nome e sobrenome foram desmembrados do corpo do objeto.
     const { nome, sobrenome } = requisicaoAoServidor.body;
     /* 
@@ -19,20 +19,20 @@ const cadastrarProfessor = (requisicaoAoServidor, respostaDoServidor) => {
         new CadastrarProfessor(requisicaoAoServidor.body.nome, requisicaoAoServidor.body.sobrenome);
     */
     // Cadastro do professor.
-    new CadastrarProfessor(nome, sobrenome);
+    new CadastrarAluno(nome, sobrenome);
     // Desenha-se uma tela de resultado da pasta visualizações.
     respostaDoServidor.render('resultado');
 }
 
-const retornarListaDeProfessoresEmJSON = (_, respostaDoServidor) => {
+const retornarListaDeAlunosEmJSON = (_, respostaDoServidor) => {
     // O servidor envia para o usuário, 
-    respostaDoServidor.json( new Professores().listar() )
+    respostaDoServidor.json( new Alunos().listar() )
 };
 
-const exibirPaginaDeCadastroListaDeProfessores = (_, respostaDoServidor) => respostaDoServidor.render('cadastrar',{ professores: new Professores().listar() });
+const exibirPaginaDeCadastroListaDeAlunos = (_, respostaDoServidor) => respostaDoServidor.render('cadastrar',{ alunos: new Alunos().listar() });
 
 module.exports = { 
-    cadastrarProfessor, 
-    retornarListaDeProfessoresEmJSON, 
-    exibirPaginaDeCadastroListaDeProfessores 
-};
+    cadastrarAluno, 
+    retornarListaDeAlunosEmJSON, 
+    exibirPaginaDeCadastroListaDeAlunos 
+}

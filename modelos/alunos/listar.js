@@ -4,14 +4,14 @@ const fs = require('fs');
 const path = require('path');
 const raizDoProjeto = path.resolve('./');
 // Carregar o arquivo do nosso banco de dados em JSON.
-const arquivoEmJSON = fs.readFileSync(raizDoProjeto + '/banco-de-dados.json', 'utf-8');
+const arquivoEmJSON = fs.readFileSync(raizDoProjeto + '/banco-de-dados-alunos.json', 'utf-8');
 const arquivoConvertidoEmObjetoLiteral = JSON.parse(arquivoEmJSON);
 
-function ListarProfessores() {
+function ListarAlunos() {
     this.listar = function() {
         // Retonar o valor em JSON.
         return arquivoConvertidoEmObjetoLiteral;
     }
 }
 
-module.exports = ListarProfessores;
+module.exports = ListarAlunos;

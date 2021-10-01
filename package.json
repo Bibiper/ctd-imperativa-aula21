@@ -19,7 +19,8 @@
   "homepage": "https://github.com/wssantanna/ctd-imperativa-aula21#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "express-handlebars": "^5.3.4"
+    "express-handlebars": "^5.3.4",
+    "handlebars": "^4.7.7"
   },
   "devDependencies": {}
 }
